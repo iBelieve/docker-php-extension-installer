@@ -1420,7 +1420,7 @@ buildRequiredPackageLists() {
 	if test -n "$PACKAGES_PERSISTENT_NEW$PACKAGES_VOLATILE"; then
 		case "$DISTRO" in
 			debian)
-				PACKAGES_PREVIOUS="$(dpkg --get-selections | grep -E '\sinstall$' | awk '{ print $1 }')"
+				PACKAGES_PREVIOUS="$(apt-mark showmanual)"
 				;;
 		esac
 	fi
